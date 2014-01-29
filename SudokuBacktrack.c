@@ -115,7 +115,7 @@ int grid_ok(int grid[9][9], int x, int y)
         return 1;
     /*jika kasus ini benar, menguji kasus berikutnya*/
     if(grid[x][y] != 0)
-        return is_grid_ok(grid, (x+1)%9, y+((x+1)/9));
+        return grid_ok(grid, (x+1)%9, y+((x+1)/9));
     /*jika tidak, test setiap kemungkinan untuk kasus grid [x][y]*/
     for(n = 1; n <= 9; ++n)
     {
