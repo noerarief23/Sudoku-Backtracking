@@ -104,10 +104,10 @@ int kotak_kecil(int n, int grid[9][9], int x, int y)
 
 void solusi_grid(int grid[9][9])
 {
-    printf("%s Solusinya (^_^)", is_grid_ok(grid, 0, 0) == 1 ? "Ini" : "Tidak Ada");
+    printf("%s Solusinya (^_^)", grid_ok(grid, 0, 0) == 1 ? "Ini" : "Tidak Ada");
 }
 
-int is_grid_ok(int grid[9][9], int x, int y)
+int grid_ok(int grid[9][9], int x, int y)
 {
     int n;
     /*jika seluruh grid telah diuji, it's ok*/
@@ -123,7 +123,7 @@ int is_grid_ok(int grid[9][9], int x, int y)
         if(!baris(n, grid, x) && !kolom(n, grid, y) && !kotak_kecil(n, grid, x, y))
         {
             grid[x][y] = n;
-            if(is_grid_ok(grid, (x+1)%9, y+((x+1)/9)))
+            if(grid_ok(grid, (x+1)%9, y+((x+1)/9)))
                 return 1;
         }
         grid[x][y] = 0;
